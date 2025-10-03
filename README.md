@@ -125,4 +125,38 @@ Today I learned how PyTorch uses tensors to build and train deep learning models
 I explored tensor creation, attributes, operations, and how they differ from traditional matrices.  
 This forms the foundation for building neural networks and understanding how data flows through them.
 
+# Day 6 – Deep Learning Essentials (80/20 Focus)
+
+## Neural Network Building Blocks
+
+* **Tensors**: Fundamental data structure, generalization of scalars, vectors, and matrices.
+* **Neurons**: Receive inputs, apply weighted sums and non-linear activation, produce outputs.
+* **Layers**: Stacking neurons into input, hidden, and output layers creates the network.
+
+## Forward Propagation
+
+* Input data passes through weights and biases.
+* Non-linear activations (ReLU, Sigmoid, Tanh) introduce complexity beyond linear relationships.
+* Output layer provides predictions.
+
+## Loss Functions
+
+* Measure difference between predicted and actual values.
+* Examples: Cross-entropy for classification, Mean Squared Error for regression.
+
+## Backpropagation & Gradient Descent
+
+* **Backpropagation**: Calculates gradients of loss with respect to weights.
+* **Gradient Descent**: Iteratively updates weights in the opposite direction of the gradient to minimize loss.
+
+## Key Concepts Driving Deep Learning Power
+
+* **High-dimensional pattern recognition**: Neural nets excel at extracting features from complex data.
+* **Representation learning**: Layers progressively transform raw inputs into abstract features.
+* **Scalability**: Large datasets and GPUs enable training of deep and accurate models.
+
+## Practical Takeaways
+
+* Deep learning extends traditional machine learning by automatically learning features.
+* Success depends on quality of data, choice of architecture, and effective optimization.
 
