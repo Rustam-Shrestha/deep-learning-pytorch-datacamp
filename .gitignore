@@ -1,0 +1,67 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.so
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+jupyter_env/
+*.env
+
+# Ignore datasets and downloadable resources
+*.csv
+*.tsv
+*.json
+*.xlsx
+*.zip
+*.tar.gz
+*.h5
+*.pkl
+*.npz
+*.db
+*.sqlite
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.mp3
+
+# Ignore vendor-provided or manufacturer-supplied code
+vendor/
+external/
+third_party/
+support_modules/
+reference_code/
+pretrained_models/
+docs/
+examples/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+
+# Ignore logs and temporary files
+*.log
+*.bak
+*.tmp
+*.swp
+*.~*
+
+# Ignore build artifacts
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Ignore IDE/editor configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
