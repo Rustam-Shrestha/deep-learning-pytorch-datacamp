@@ -159,4 +159,149 @@ This forms the foundation for building neural networks and understanding how dat
 
 * Deep learning extends traditional machine learning by automatically learning features.
 * Success depends on quality of data, choice of architecture, and effective optimization.
+'
+
+
+
+#day 7
+# Using Derivatives to Update Model Parameters
+
+## 1. Why We Need Derivatives
+
+Once we calculate the loss, we need a way to reduce it.  
+Derivatives (also called gradients in deep learning) help us figure out how to adjust the model’s weights and biases to make better predictions.  
+They tell us the direction and steepness of change — like a slope on a hill.
+
+---
+
+## 2. Visual Analogy: Loss as a Valley
+
+Imagine the loss function as a valley:
+
+- The height of the valley represents the loss value
+- The slope tells us how steep the curve is at a point
+- A steep slope means the loss is changing quickly
+- A flat slope means the loss is stable
+
+We want to reach the **lowest point** in the valley — this is where the loss is minimal.
+
+
+   ![image.png](attachment:dd9e84d1-a421-4d14-b2ef-2896c90995f2.png)
+
+- Red arrows show steep slopes -> large gradient -> big update steps
+- Green arrows show gentle slopes -> small gradient -> small update steps
+- Blue arrow at the valley floor -> slope is zero -> gradient is zero -> we’ve reached the minimum
+
+---
+
+## 3. Convex vs Non-Convex Functions
+![image.png](attachment:14d49cf8-aa8a-4c70-9bfb-d2ce9cdadb85.png)
+
+- **Convex function**: has one global minimum. Easy to find and optimize.
+- **Non-convex function**: has many local minima. These are low points, but not the lowest possible.
+
+Loss functions in deep learning are usually **non-convex** because of complex layer interactions.  
+Our goal is to get as close as possible to the **global minimum**, even if we pass through local dips along the way.
+
+---
+
+## 4. How Derivatives Connect to Training
+
+During training:
+
+![image.png](attachment:352342a7-8872-4e52-957c-b317903ade13.png)
+
+- We run a **forward pass** to get predictions
+- We calculate the **loss** by comparing predictions to actual labels
+- We then run a **backward pass** to compute gradients
+
+These gradients tell us how each weight and bias contributed to the error.  
+We use them to adjust the parameters so the model improves over time.
+
+---
+
+## 5. What Are Gradients?
+
+In deep learning, derivatives are called **gradients**.  
+They measure how much the loss changes when we tweak a specific parameter.
+
+- A large gradient means the parameter has a big impact on the loss
+- A small gradient means the parameter has little effect
+
+We use gradients to update weights and biases in the direction that reduces the loss.
+
+---
+
+## 6. Backpropagation: The Core Mechanism
+
+Backpropagation is the process of computing gradients layer by layer, starting from the output and moving backward.
+
+If we have a network with three layers:
+
+![image.png](attachment:8bf3246a-7e4c-4da6-a39d-b1752cccf748.png)
+
+- First, we compute gradients for the last layer (L2)
+- Then for the middle layer (L1)
+- Finally for the first layer (L0)
+
+Each layer’s gradients depend on the layers that come after it.  
+This chain of calculations is what makes deep learning powerful and efficient.
+
+---
+
+## 7. How Parameters Are Updated
+
+Once we have gradients, we update each parameter like this:
+
+- Multiply the gradient by a **learning rate**
+- Subtract that value from the current weight or bias
+![image.png](attachment:79889b85-59fe-42e6-8f7c-189d357dacfd.png)
+This moves the parameter in the direction that reduces the loss.  
+The learning rate controls how big each step is too big and we overshoot, too small and we move too slowly.
+
+---
+
+## 8. Gradient Descent: The Optimization Strategy
+
+Gradient descent is the method we use to find the minimum of the loss function.
+
+Steps:
+- Calculate gradients
+- Move parameters in the direction that reduces loss
+- Repeat until the loss is low enough
+
+There are many versions of gradient descent:
+- **Batch gradient descent**: uses all data at once
+- **Stochastic gradient descent (SGD)**: uses one sample at a time
+- **Mini-batch gradient descent**: uses small groups of samples
+
+Most deep learning frameworks use **SGD with mini-batches** for speed and stability.
+
+---
+
+## 9. Optimizers: Automating the Updates
+
+Instead of manually updating parameters, we use **optimizers**.  
+They handle gradient calculations and parameter updates for us.
+
+Popular optimizers:
+- **SGD**: basic and reliable
+- **Adam**: adaptive learning rates, faster convergence
+- **RMSprop**: good for noisy data
+
+Optimizers use the gradients and learning rate to update all model parameters automatically.  
+This is what makes training scalable and efficient.
+
+---
+
+## Summary
+
+- Derivatives (gradients) tell us how to reduce loss
+- Loss is like a valley — we want to reach the lowest point
+- Backpropagation computes gradients layer by layer
+- Gradients are used to update weights and biases
+- Gradient descent is the strategy to minimize loss
+- Optimizers automate the update process
+
+This is the heart of how neural networks learn. Next step: training loops and learning rate tuning.
 
