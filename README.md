@@ -449,3 +449,53 @@ You built a full PyTorch regression pipeline:
 
 You're officially deep learning fluent in PyTorch.
 
+
+
+
+
+
+# day 9
+## Quick Recall — October 6, 2025
+
+### Activation Functions
+- **ReLU**: Outputs input if positive, else zero. Fast, avoids vanishing gradients. Best for hidden layers.
+- **Leaky ReLU**: Like ReLU but allows small negative outputs. Prevents dead neurons.
+- **Sigmoid**: Maps input to (0, 1). Good for binary classification output. Saturates for large/small inputs.
+- **Softmax**: Converts scores to probabilities summing to 1. Used in multi-class output layers. Also saturates.
+
+### Optimization: Learning Rate and Momentum
+- **Learning Rate**: Controls step size during weight updates.  
+  - Too high → unstable, overshooting  
+  - Too low → slow convergence  
+  - Optimal → smooth descent
+- **Momentum**: Adds inertia to updates.  
+  - Helps escape local minima  
+  - Smooths optimization  
+  - Typical range: 0.85–0.99
+
+### Loss Landscapes
+- **Convex**: Single global minimum, easy to optimize.
+- **Non-convex**: Multiple local minima and saddle points. Requires careful tuning and momentum to avoid getting stuck.
+
+### Layer Initialization
+- Initial weights should be small to prevent unstable outputs.
+- PyTorch uses default ranges (e.g., -0.125 to +0.125).
+- Custom initialization via `torch.nn.init` (uniform, normal, Xavier, He).
+- Initialization method should match activation function.
+
+### Transfer Learning
+- Reuse pretrained model weights for a new task.
+- Saves time, improves performance, especially with limited data.
+- Use `torch.save` and `torch.load` to manage weights.
+
+### Fine-Tuning
+- Load pretrained weights and train further with a smaller learning rate.
+- Freeze early layers (set `requires_grad = False`) and update later layers.
+- Useful when new task is similar to original.
+
+### Summary
+Today’s focus was on understanding how neural networks learn and optimize:
+- Activation functions shape signal flow and gradient behavior.
+- Learning rate and momentum control convergence dynamics.
+- Initialization, transfer learning, and fine-tuning improve training efficiency and reuse.
+
